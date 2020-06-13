@@ -1,0 +1,185 @@
+body {
+    background-color: black;
+    font-family: sans-serif;
+    font-size: 25px;
+    color :orange;
+}
+
+.checkmark {
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.homepage {
+  /* color: black; */
+  /* text-align: center; */
+  font-size: 25px;
+  color :orange;
+}
+
+
+.homepage:hover, .homepage:active, .homepage:focus {
+  /* color: red; */
+  outline: none;
+  text-decoration: none;
+}
+
+
+/* body {
+  background: black;
+  color: orange;
+  font-family: "Open Sans", sans-serif;
+}  */
+
+li{
+  position:relative;
+  padding-top: 35px;
+  padding-bottom: 10px;
+  padding-left: 40%;
+  /* font-size:40px; */
+}
+
+
+.container{
+  text-align: center;
+  font-size : 40px;
+  padding-top: 1%;
+  /* padding-left: 7%; */
+
+}
+
+.label{
+  text-align: center;
+  padding-right: 10px;
+
+}
+
+.date{
+  height : 25px;
+  width : 300px;
+}
+
+.field{
+  height : 25px;
+  width: 350px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 400;
+  padding: 5px;
+
+  /* display: inline-block; */
+  /* position: absolute; */
+}
+
+table{
+  border: 1px solid orange;
+  margin-left: auto;
+  margin-right: auto;
+  /* padding-left: 10%; */
+}
+
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border: 1px solid orange;
+}
+
+.selectable {
+    -webkit-touch-callout: all;
+	-webkit-user-select: all;
+	-khtml-user-select: all;
+	-moz-user-select: all;
+	-ms-user-select: all;
+	-o-user-select:all;
+	user-select: all;
+}
+
+.custom-select{
+    font-size: 25px;
+    margin: 40px;
+    /* background: rgba(0, 0, 0, 0.1); */
+    background-color: black;
+    color: orange;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    overflow:hidden;
+    overflow-y:scroll;
+    width: auto;
+}
+
+
+.custom-option{
+  background-color: orange;
+  /* padding-left: 10px; */
+}
+
+.extra{
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  margin: 0 0 20px 0;
+  padding: 2px;
+  text-align: center;
+}
+
+.submit:hover {
+  background: #6495ED;
+  transition: all 0.5s;
+  opacity: 1;
+  z-index: 997;
+}
+
+.submit {
+  font-size: 25px;
+  color : black;
+  background-color: orange;
+  border-radius: 10%;
+  border-color: black;
+}
+
+
+a {
+  /* color: black; */
+  text-align: center;
+  font-size: 40px;
+  color :orange;
+}
+
+
+a:hover, a:active, a:focus {
+  /* color: red; */
+  outline: none;
+  text-decoration: none;
+}
+
+div{
+  align-items: center;
+
+}
+
+h1 #center{
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+  padding: 10px;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+  padding: 10px;
+  text-align: center;
+}
+
+#header {
+  padding: 30px 0;
+  height: 92px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  transition: all 0.5s;
+  z-index: 997;
+}

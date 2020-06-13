@@ -1,0 +1,26 @@
+{% extends "accounts/base.html"%}
+
+{% block title %} statement {%  endblock %}
+
+{% block body %}
+<a  class = "homepage" href ="{% url 'index'  %}"> Back to Homepage </a>
+  <h1> Statement </h1>
+  <table>
+    <tr>
+      <td> Date </td>
+      <td> Amount </td>
+    </tr>
+  <h1> {{user.firstName}} {{user.lastName}}</h1>
+  {% for acntInfo in accountInfo %}
+    <h1 class ="extra"> {{acntInfo.openDate}} :: Rs. {{acntInfo.amount}}</h1>
+  {% endfor %}
+  <h1 class ="extra"> Amount Paid : Rs. {{total.amount__sum}} </h1>
+  {% for data in userData %}
+    <tr>
+      <td> {{data.dateId}} </td>
+      <td> {{data.amount}} </td>
+    </tr>
+  {% endfor %}
+  </table>
+
+{% endblock %}

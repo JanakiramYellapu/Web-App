@@ -1,0 +1,17 @@
+{% extends "accounts/base.html" %}
+
+{% block title %} select date {% endblock %}
+
+{% block body %}
+<a  class = "homepage" href ="{% url 'index'  %}"> Back to Homepage </a>
+  <h1> Please Select Date !!! </h1>
+  <form  action ="{% url 'selectDate' %}" method = "post">
+    {% csrf_token %}
+    <div class ="container">
+      <label class ="label"> Choose Date : </label>
+      <input class = "field" type = "date" name = "date"/>
+      <input class ="submit" type ="submit" value ="submit">
+    </div>
+  </form>
+
+{% endblock %}

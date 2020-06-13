@@ -1,0 +1,59 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+
+{% block title %} Data {% endblock %}
+
+{% block js %}
+    <script src="{% static 'accounts/js/sheetEntry.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block body %}
+<a  class = "homepage" href ="{% url 'index'  %}"> Back to Homepage </a>
+<h1> Date : {{date.date}} </h1>
+<form id = "form" action ="{% url 'sheetData'  %}" method = "post">
+  {% csrf_token %}
+  <div class ="container" >
+    <div id ="result"> </div>
+    <input id ="dateId" type ="number" value = "{{date.id}}" name = "date", hidden = True/>
+    <select  id ="userId" class ="custom-select" name = "userId">
+      <option value ="0"> ---- ---- ---- ---- </option>
+      {% for user in users %}
+        <option value="{{user.id}}"> {{user}}</option>>
+      {% endfor %}
+    </select>
+    <input id ="amount" class ="field" type ="number"  autocomplete="off" name ="amount" placeholder="Enter amount">
+    <input id ="save" class ="submit" type ="submit" name = "action" value= "Save" /><br>
+    <input class ="submit" type ="submit" name = "action" value= "Done" />
+    </div>
+</form>
+
+<br>
+<br>
+<hr>
+<!-- Expense form -->
+<form id = "form" action ='{% url 'expenseAmount' %}'  method ='post'>
+  {% csrf_token %}
+  <h1> Enter Expenses: </h1>
+  <div class ="container" >
+    <div id ="expenseResult"> </div>
+    <input id ="expDateId" type ="number" value = "{{date.id}}" name = "dateId"  hidden = True/>
+    <select  name ="expense" id ="expId" class ="custom-select" >
+      <option value ="0"> ---- ---- ---- ---- </option>
+      <option value="Petrol"> Petrol</option>>
+      <option value="Milk"> Milk</option>>
+    </select>
+    <input name ="amount" id ="expenseAmount" class ="field" type ="number"  autocomplete="off"  placeholder="Enter amount">
+    <input id ="expenseSave" class ="submit" type ="submit"  value= "Save" /><br>
+    <br>
+    <label> Other Expenses : </label><br>
+    <input class ="field" id = "otherExpenses" type ="text" placeholder="Enter expense" />
+    <input id ="otherExpenseAmount" class ="field" type ="number"  autocomplete="off"  placeholder="Enter amount">
+    <input id ="otherExpenseSave" class ="submit" type ="submit"  value= "Save" /><br>
+    </div>
+</form>
+
+<br>
+<br>
+<br>
+
+{% endblock %}

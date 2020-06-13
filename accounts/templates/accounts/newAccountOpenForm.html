@@ -1,0 +1,31 @@
+{% extends "accounts/base.html" %}
+
+{% load static %}
+
+{% block title %} New account {% endblock %}
+
+{% block js %}
+  <script src="{% static 'accounts/js/newUserNewAccount.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block body %}
+<a  class = "homepage" href ="{% url 'index'  %}"> Back to Homepage </a>
+<h1> Opening New Account For New User!!! </h1>
+  <form class="form" action ="{% url 'newAccountInfoEntry' %}" method = "post">
+    {% csrf_token %}
+    <div id ="result"> </div>
+    <div class ="container">
+      <label class= "label" > Date : </label>
+      <input class = "field" id = "date" type = "date" name = "date"/><br><br>
+      <label class= "label"> First Name : </label>
+      <input id ="firstName" class ="field"  autofocus autocomplete="off" type = "text" name ="firstName" placeholder="First Name" /><br><br>
+      <label class= "label"> Last Name : </label>
+      <input id ="lastName" class ="field" autofocus autocomplete="off" type = "text" name ="lastName"  /><br><br>
+      <label class= "label" > Mobile No : </label>
+      <input id = "mobileNo" class ="field" autofocus autocomplete="off" type = "text" name ="mobileNo" /><br><br>
+      <label class= "label" > Amount : </label>
+      <input id = "amount" class ="field" autofocus autocomplete="off" type = "number" name ="amount" placeholder="Amount"/><br><br>
+      <input  class ="submit" type ="submit" value ="submit" >
+    </div>
+  </form>
+{% endblock %}

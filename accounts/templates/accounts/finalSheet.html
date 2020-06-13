@@ -1,0 +1,30 @@
+{% extends "accounts/base.html" %}
+
+{% block title%} final sheet {% endblock %}
+
+{% block body %}
+<a  class = "homepage" href ="{% url 'index'  %}"> Back to Homepage </a>
+  <h1> {{date.date}} </h1>
+  <div class ="container">
+    <table>
+      <tr>
+        <hr>
+        <th class ="selectable">  Name </th> <th> Amount </th>
+      </tr>
+      {% for t in data %}
+      <tr>
+        <td class ="selectable"> {{t.userId}} </td>  <td> {{t.amount}} </td>
+      <tr>
+      {% endfor %}
+      <tr> <th class ="selectable">Total </th> <td> Rs. {{total}}</td> </tr>
+      {% for exp in e %}
+      <tr>
+        <td class ="selectable"> {{exp.item}} </td>  <td> {{exp.amount}} </td>
+      <tr>
+      {% endfor %}
+      <tr> <th class ="selectable">Expense total </th> <td> Rs. {{exptot}}</td> </tr>
+      <tr> <th class ="selectable">Final total </th> <td> Rs. {{finaltot}}</td> </tr>
+    </table>
+  </div>
+
+{% endblock %}

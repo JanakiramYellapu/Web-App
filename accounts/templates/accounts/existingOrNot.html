@@ -1,0 +1,14 @@
+{% extends "accounts/base.html" %}
+
+{% block title %} Existing? {% endblock %}
+
+{% block body %}
+<a  class = "homepage" href ="{% url 'index'  %}"> Back to Homepage </a>
+<h1> New User ? </h1>
+  <li>
+    <a href="{% url 'new' %}"> New User </a>
+  </li>
+  <li>
+    <a href="{% url 'existing' %}"> Existing User </a>
+  </li>
+{% endblock %}

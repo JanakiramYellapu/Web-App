@@ -1,0 +1,23 @@
+{% extends "accounts/base.html"%}
+
+{% block title %} Select User {% endblock %}
+
+
+
+{% block body %}
+<a  class = "homepage" href ="{% url 'index'  %}"> Back to Homepage </a>
+<h1> Select an User !!! </h1>
+    <form class = "form" action = "{% url 'getInfo' %}" method ="post" >
+      {% csrf_token %}
+      <div class = "container">
+        <select id = "select"  name = "userObj" class="custom-select">
+          <option value = "0">---- ---- ---- ----</option>
+          {% for user in users %}
+           <option value = "{{user.id}}" >{{user}}</option>
+          {% endfor %}
+        </select>
+        <input class ="submit" type ="submit" value = "Submit" />
+      </div>
+    </form>
+
+{% endblock %}
