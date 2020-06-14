@@ -26,7 +26,7 @@ def statement(request):
     context ={
         "users" : User.objects.all()
     }
-    return render(request, "accounts/selectuser.html", context)
+    return render(request, "accounts/selectUser.html", context)
 
 #  /users/
 def newAccount(request):
@@ -96,9 +96,8 @@ def accountInfoEntry(request):
         "date" : d.date
     }
     if(type == "single"):
-        try:
-            a = AccountInfo.objects.filter(userId = user, status="open")
-        except AccountInfo.DoesNotExist:
+        a = AccountInfo.objects.filter(userId = user, status="open")
+        if(not a.exists()):
             a = AccountInfo(userId = user, openDate =date, amount = amount)
             a.save()
             message["status"] = "closed"
@@ -173,9 +172,12 @@ def closeAccountForm(request):
     except User.DoesNotExist:
         render(request, "accounts/error.html", {"message" : "Invalid user"})
     # close account
-    a = AccountInfo.objects.get(userId = u, status="open")
-    a.status = "closed"
-    a.save()
+    a = AccountInfo.objects.filter(userId = u, status="open")
+    for openact in a:
+        openact.status = "closed"
+        openact.save()
+    # a.status = "closed"
+    # a.save()
     # Delete from transactions
     t = Transaction.objects.filter(userId = u)
     t.delete()
