@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () =>{
       return false;
     }
     const request  = new XMLHttpRequest();
-    request.open('POST', '/user/closeAccount/form');
+    request.open('POST', '/accounts/user/closeAccount/form');
 
     request.onload = () =>{
         const data = JSON.parse(request.responseText);

@@ -12,7 +12,7 @@
 {% block body %}
 <a  class = "homepage" href ="{% url 'index'  %}"> Back to Homepage </a>
 <h1> Select an User !!! </h1>
-    <form class = "form"  method ="post" >
+    <form class = "form" {% url 'closeAccountForm' %}  method ="post" >
       {% csrf_token %}
       <div id = "result"></div>
       <div class = "container">

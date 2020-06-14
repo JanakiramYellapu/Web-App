@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     }
     const request  = new XMLHttpRequest();
-    request.open('POST', '/user/newAccount/existing/form');
+    request.open('POST', '/accounts/user/newAccount/existing/form');
 
     request.onload = () =>{
       const data = JSON.parse(request.responseText);

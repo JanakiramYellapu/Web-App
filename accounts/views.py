@@ -157,8 +157,10 @@ def deleteUserForm(request):
 
 # closeAccount/
 def closeAccount(request):
+    a = AccountInfo.objects.filter(status = "open").values('userId').distinct()
+    u = User.objects.filter(pk__in = a)
     context = {
-        "users" : User.objects.all()
+        "users" : u
     }
     return render(request, 'accounts/selectUserClosingAccount.html', context)
 

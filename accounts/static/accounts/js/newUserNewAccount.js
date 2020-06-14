@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     }
     const request  = new XMLHttpRequest();
-    request.open('POST', '/user/newAccount/new/form');
+    request.open('POST', '/accounts/user/newAccount/new/form');
 
     request.onload = () =>{
         const data = JSON.parse(request.responseText);

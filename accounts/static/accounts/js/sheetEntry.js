@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.alert("Empty fields!!!");
       return false;
     }
-    request.open('POST', '/sheetEntry/form/data');
+    request.open('POST', '/accounts/sheetEntry/form/data');
 
     request.onload = ()=>{
           // const data = request.responseText;
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.alert("Empty fields!!!");
       return false;
     }
-    request.open('POST', '/sheetEntry/form/expense');
+    request.open('POST', '/accounts/sheetEntry/form/expense');
 
     request.onload = ()=>{
           const data = JSON.parse(request.responseText);
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.alert("Empty fields!!!");
       return false;
     }
-    request.open('POST', '/sheetEntry/form/expense');
+    request.open('POST', '/accounts/sheetEntry/form/expense');
 
     request.onload = ()=>{
           const data = JSON.parse(request.responseText);

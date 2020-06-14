@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.alert("Empty fields!!!");
       return false;
     }
-    request.open('POST', '/sheetEntry/form/expense');
+    request.open('POST', '/accounts/sheetEntry/form/expense');
 
     request.onload = ()=>{
           const data = JSON.parse(request.responseText);

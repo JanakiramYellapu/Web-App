@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () =>{
       return false;
     }
     const request  = new XMLHttpRequest();
-    request.open('POST', '/user/deleteUser/form');
+    request.open('POST', '/accounts/user/deleteUser/form');
 
     request.onload = () =>{
         const message = `Deleted successfully!!! please reload the page.`;
