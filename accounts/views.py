@@ -173,9 +173,10 @@ def closeAccountForm(request):
         render(request, "accounts/error.html", {"message" : "Invalid user"})
     # close account
     a = AccountInfo.objects.filter(userId = u, status="open")
-    for openact in a:
-        openact.status = "closed"
-        openact.save()
+    if(a.exists()):
+        for openact in a.iterator():
+            openact.status = "closed"
+            openact.save()
     # a.status = "closed"
     # a.save()
     # Delete from transactions
