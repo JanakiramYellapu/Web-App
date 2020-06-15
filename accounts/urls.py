@@ -20,5 +20,7 @@ urlpatterns =[
     path("user/closeAccount" , views.closeAccount, name = "closeAccount"),
     path("user/closeAccount/form" , views.closeAccountForm, name = "closeAccountForm"),
     path("sheetEntry/form/expense" , views.expenseAmount, name = "expenseAmount"),
+    path("expenseDate/expenses" , views.expense, name = "expense"),
+    path("expenseDate" , views.expenseDate, name = "expenseDate"),
 
 ]

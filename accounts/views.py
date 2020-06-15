@@ -44,7 +44,7 @@ def getInfo(request):
     try :
         userId = int(request.POST["userObj"])
         user = User.objects.get(pk = userId)
-        userData = Transaction.objects.filter(userId = user)
+        userData = Transaction.objects.filter(userId = user).order_by('dateId')
     except KeyError:
         return render(request, "accounts/error.html", {"message" : "Please Enter"})
     except Transaction.DoesNotExist:
@@ -201,9 +201,13 @@ def selectDate(request):
         d = Date(date=date)
         d.save()
     d = Date.objects.get(date = date)
+
+    # open active users will be displayed.
+    a = AccountInfo.objects.filter(status = "open").values('userId').distinct()
+    u = User.objects.filter(pk__in = a)
     context ={
         "date" : d,
-        "users" : User.objects.all()
+        "users" : u
     }
     # return HttpResponse(d.id)
     return render(request, "accounts/sheetData.html", context)
@@ -309,3 +313,26 @@ def expenseAmount(request):
         json.dumps(message, cls=DjangoJSONEncoder),
         content_type = 'application/javascript; charset=utf8'
     )
+
+def expenseDate(request):
+    return render(request, "accounts/expenseDate.html")
+
+# /expenses/-> expense view
+def expense(request):
+    startDate = request.POST['startDate']
+    endDate = request.POST['endDate']
+    message ={
+        "status" : "failed",
+        "startDate" : startDate,
+        "endDate": endDate,
+    }
+    if(startDate <= endDate):
+        d = Date.objects.filter(date__gte =startDate, date__lte =endDate)
+        if(d.exists):
+            e = Expense.objects.filter(dateId__in =d).order_by('dateId')
+            if(e.exists):
+                message["status"] = "success"
+                message["expenseData"] = e
+                message["total"] = e.aggregate(Sum('amount'))
+
+    return render(request, "accounts/expenseView.html", message)
